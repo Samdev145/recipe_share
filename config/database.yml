@@ -8,13 +8,15 @@ development:
   <<: *default
   database: RecipeShare_development
   password: LukeLeah1
+  username: recipe_share
 
 test:
   <<: *default
   database: RecipeShare_test
+  username: recipe_share
+  password: LukeLeah1
 
 production:
   <<: *default
   database: RecipeShare_production
-  username: recipe_share
   password: <%= ENV['RECIPE_SHARE_DATABASE_PASSWORD'] %>
