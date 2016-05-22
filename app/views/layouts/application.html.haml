@@ -1,0 +1,22 @@
+!!! 5
+%html
+	%head
+		%RecipeShare
+		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+		= javascript_include_tag 'application', 'data-turbolinks-track' => true
+		= csrf_meta_tags
+
+	%body{ id: "#{controller_name}_#{action_name}" }
+		%header
+			= render partial: 'shared/header'
+		#main
+			.container-fluid
+				- if flash.present?
+					- flash.each do |key, message|
+						%div{ class: "alert alert-#{key}", role: 'alert' }
+							= message
+
+				= yield
+
+		%footer
+
