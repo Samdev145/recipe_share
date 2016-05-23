@@ -86,6 +86,7 @@ RSpec.describe RecipeController, type: :controller do
 			user = build(:user)
 			user.password = 'SecretPword'
 			user.save
+			user.recipes << create(:recipe)
 			sign_in user 
 		end
 
