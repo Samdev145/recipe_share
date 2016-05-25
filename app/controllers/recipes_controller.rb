@@ -1,4 +1,4 @@
-class RecipeController < ApplicationController
+class RecipesController < ApplicationController
 
   before_action :authenticate_user!
 
@@ -42,7 +42,7 @@ class RecipeController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    redirect_to recipe_index_path
+    redirect_to recipes_path
   end
 
   private

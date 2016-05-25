@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe RecipeController, type: :controller do
+RSpec.describe RecipesController, type: :controller do
 
 	let(:recipe) { create(:recipe) }
 
@@ -230,7 +230,7 @@ RSpec.describe RecipeController, type: :controller do
 
 		    it 'should rediect the user to the recipe index' do
 		    	delete :destroy, :id => recipe.id
-		    	expect(response).to redirect_to(recipe_index_path)
+		    	expect(response).to redirect_to(recipes_path)
 		    end
 
 		  end
