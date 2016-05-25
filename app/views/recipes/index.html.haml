@@ -10,14 +10,15 @@
 #recipes
 	%ul
 		- @recipes.each do |recipe|
-			.row
-				.recipe
-					.col-xs-2
-						.image
-							Place holder
-					.col-xs-9
-						.description
-							%p
-								= recipe.name
-							%p
-								= "cuisine: #{recipe.cuisine}"
+			%a{ href: recipe_path(recipe.id) }
+				.row
+					.recipe
+						.col-xs-2
+							.image
+								Place holder
+						.col-xs-9
+							.description
+								%p
+									= recipe.name
+								%p
+									= "cuisine: #{recipe.cuisine}"
