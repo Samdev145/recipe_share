@@ -1,2 +1,11 @@
 %h1 
-	= "#{@recipe.name} Recipe"
+	= "#{@recipe.name} Recipe " + "(#{@recipe.cuisine})"
+
+.recipe
+	.col-xs-2
+		.image
+			Place holder
+	.col-xs-9
+		.description
+			%p
+				= @recipe.steps
