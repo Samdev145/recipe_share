@@ -12,3 +12,5 @@
 					- @recipe.steps.each.with_index(1) do |step, index|
 						%li
 							= "Step #{index} - #{step}"
+
+			= link_to('Edit', edit_recipe_path(@recipe.id))

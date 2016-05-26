@@ -1,5 +1,21 @@
-%h1 Recipe#edit
-%p
-	Find me in app/views/recipe/edit.html.erb
+%h1 Edit Recipe
 
-= render partial: 'form'
+.row
+	.col-xs-7
+		= form_for(@recipe) do |f|
+			.form-group
+				= f.label :name
+				= f.text_field :name, class: 'form-control'
+			.form-group
+				= f.label :cuisine
+				= f.text_field :cuisine, class: 'form-control'
+			- @recipe.steps.each do |step|
+				.form-group
+					= f.label :steps
+					= f.text_field :steps, class: 'form-control', name: 'recipe[steps][]', value: step
+			.form-group
+				= f.label :ingredients
+				= f.text_field :ingredients, class: 'form-control'
+
+			%button{class: 'btn btn-success'}
+				Submit

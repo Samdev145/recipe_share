@@ -1,22 +1,25 @@
-
 .row
 	.col-xs-7
-		= form_for(@recipe) do |f|
-			.form-group
-				= f.label :name
-				= f.text_field :name, class: 'form-control'
-			.form-group
-				= f.label :cuisine
-				= f.text_field :cuisine, class: 'form-control'
-			.form-group
-				= f.label :steps
-				= f.text_field :steps, class: 'form-control', name: 'recipe[steps][]'
-			.form-group
-				= f.label :steps
-				= f.text_field :steps, class: 'form-control', name: 'recipe[steps][]' 
-			.form-group
-				= f.label :ingredients
-				= f.text_field :ingredients, class: 'form-control'
+		.recipe_form
+			= form_for(@recipe) do |f|
+				.form-group
+					= f.label :name
+					= f.text_field :name, class: 'form-control'
+				.form-group
+					= f.label :cuisine
+					= f.text_field :cuisine, class: 'form-control'
+				.step_fields
+					.new_step_fields
+						.form-group
+							= f.label :steps, 'Step'
+							= f.text_field :steps, class: 'form-control', name: 'recipe[steps][]'
+							%div{ class: 'new_step_button btn btn-success' }
+								Add Step
+							%div{ class: 'remove_step_button btn btn-danger', style: 'display: none;' }
+								Remove Step
+				.form-group
+					= f.label :ingredients
+					= f.text_field :ingredients, class: 'form-control'
 
-			%button{class: 'btn btn-success'}
-				Submit
+				%button{class: 'btn btn-success'}
+					Submit
