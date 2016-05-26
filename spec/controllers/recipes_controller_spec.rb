@@ -8,7 +8,7 @@ RSpec.describe RecipesController, type: :controller do
 			{
 				recipe: {
 					name:  'Lasagna',
-					steps: 'cooking steps',
+					steps: ['cooking steps'],
 					ingredients: 'food items',
 					cuisine: 'italian'
 				}
@@ -19,7 +19,7 @@ RSpec.describe RecipesController, type: :controller do
 			{
 				recipe: {
 					name:  '',
-					steps: 'cooking stes',
+					steps: ['cooking stes'],
 					ingredients: 'food items',
 					cuisine: 'italian'
 				}

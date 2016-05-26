@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'main_pages#home'
-  get 'my_recipes' => 'recipe#index', as: :user_root
+  get 'my_recipes' => 'recipes#index', as: :user_root
 
   resources :recipes
 

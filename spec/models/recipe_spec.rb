@@ -31,7 +31,11 @@ RSpec.describe Recipe, type: :model do
 			subject.cuisine = ''
 			expect(subject).to_not be_valid
 		end
-
 	end
 
+	describe '#steps' do
+		it 'should be of type Array' do
+			expect(subject.steps).to be_instance_of(Array)
+		end
+	end
 end

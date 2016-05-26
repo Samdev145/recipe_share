@@ -8,4 +8,7 @@
 	.col-xs-9
 		.description
 			%p
-				= @recipe.steps
+				%ul
+					- @recipe.steps.each.with_index(1) do |step, index|
+						%li
+							= "Step #{index} - #{step}"

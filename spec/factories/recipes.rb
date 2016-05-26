@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :recipe do
   	name  'Lasagna'
-    steps 'cooking stes'
+    steps ['cooking stes']
     ingredients 'food items'
     cuisine 'italian'
   end

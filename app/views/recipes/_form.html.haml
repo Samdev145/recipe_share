@@ -10,7 +10,10 @@
 				= f.text_field :cuisine, class: 'form-control'
 			.form-group
 				= f.label :steps
-				= f.text_field :steps, class: 'form-control'
+				= f.text_field :steps, class: 'form-control', name: 'recipe[steps][]'
+			.form-group
+				= f.label :steps
+				= f.text_field :steps, class: 'form-control', name: 'recipe[steps][]' 
 			.form-group
 				= f.label :ingredients
 				= f.text_field :ingredients, class: 'form-control'

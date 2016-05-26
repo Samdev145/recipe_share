@@ -1,4 +1,6 @@
 class Recipe < ActiveRecord::Base
+	serialize :steps
+
 	belongs_to  :user
 	has_many 		:comments, :as => :commentable
 
