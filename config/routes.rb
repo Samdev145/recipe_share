@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root 'main_pages#home'
   get 'my_recipes' => 'recipes#index', as: :user_root
 
-  resources :recipes
+  resources :recipes do
+    resources :comments, only: [:create, :destroy]
+  end
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

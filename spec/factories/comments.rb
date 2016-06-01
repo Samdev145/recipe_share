@@ -7,7 +7,7 @@ FactoryGirl.define do
     commentable_type 'Comment'
 
     factory :recipe_comment do
-    	recipe
+    	commentable_type 'Recipe'
     end
   end
 end

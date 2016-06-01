@@ -50,13 +50,6 @@ RSpec.describe RecipesController, type: :controller do
 			end
 		end
 
-		context 'GET #show' do
-			it 'should redirect the user to the home page' do
-				get :show, id: recipe.id
-				expect(response).to redirect_to(new_user_session_path)
-			end
-		end
-
 		context 'POST #create' do
 			it 'should redirect the user to the home page' do
 				post :create, valid_attributes

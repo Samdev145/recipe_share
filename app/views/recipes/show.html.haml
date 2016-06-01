@@ -2,15 +2,28 @@
 	= "#{@recipe.name} Recipe " + "(#{@recipe.cuisine})"
 
 .recipe
-	.col-xs-2
-		.image
-			Place holder
-	.col-xs-9
-		.description
-			%p
-				%ul
-					- @recipe.steps.each.with_index(1) do |step, index|
-						%li
-							= "Step #{index} - #{step}"
+	.row
+		.col-xs-2
+			.image
+				Place holder
+		.col-xs-9
+			.description
+				%p
+					%ul
+						- @recipe.steps.each.with_index(1) do |step, index|
+							%li
+								= "Step #{index} - #{step}"
 
-			= link_to('Edit', edit_recipe_path(@recipe.id))
+				-	if user_signed_in?
+					- if @recipe.user == current_user
+						= link_to('Edit', edit_recipe_path(@recipe.id))
+
+.container-fluid
+	.comments
+		.row
+			.col-xs-9.col-xs-offset-2
+				%ul
+					#comments_list
+						= render partial: 'comments/comments', locals: { comments: @recipe.comments }
+
+				= render 'comments/form'

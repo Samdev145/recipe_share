@@ -1,0 +1,9 @@
+%li
+	.comment
+		%h4
+			= comment.user.email
+		%p
+			= comment.content
+
+		= link_to 'Delete', recipe_comment_path(recipe_id: comment.commentable_id, id: comment.id), remote: true, method: :delete,  data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+
