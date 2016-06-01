@@ -1,1 +1,9 @@
-$('#comments_list').html('<%= escape_javascript(render partial: "comments/comments", locals: { comments: @comments }) %>');
+<% if @comment_parent.class.to_s == 'Comment' %>
+	$('[data-comment-id="' + <%= @comment_parent.id %> + '"]').find('.comments_list').html('<%= escape_javascript(render partial: "comments/comments", locals: { comments: @comment_parent.comments }) %>');
+<% else %>
+	$('#main').find('.comments_list').html('<%= escape_javascript(render partial: "comments/comments", locals: { comments: @comment_parent.comments }) %>');
+<% end %>
+
+
+
+

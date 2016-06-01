@@ -1,9 +1,15 @@
 %li
-	.comment
+	.comment{ data: { comment_id: comment.id } }
 		%h4
 			= comment.user.email
 		%p
 			= comment.content
 
-		= link_to 'Delete', recipe_comment_path(recipe_id: comment.commentable_id, id: comment.id), remote: true, method: :delete,  data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+		= link_to 'Delete', recipe_comment_path(recipe_id: @recipe.id, id: comment.id), remote: true, method: :delete,  data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+		= render partial: 'comments/form', locals: { commentable_type: 'Comment', user_id: current_user.id, commentable_id: comment.id }
+
+		.comments_list
+			- if comment.comments
+				= render partial: 'comments/comments', locals: { comments: comment.comments }
+	
 

@@ -3,6 +3,8 @@ class CommentsController < ApplicationController
 
 	def create
 		@comment = Comment.new(comment_params)
+		@recipe = Recipe.find(params[:recipe_id])
+		@new_comment = Comment.new
 		if @comment.save
 			respond_to do |format|
         format.html do
@@ -17,9 +19,11 @@ class CommentsController < ApplicationController
 	end
 
 	def destroy
-		@comment = Comment.find(params[:id])
-		@comment.destroy
-		@comments = Recipe.find(params[:recipe_id]).comments
+		parent = Comment.find(params[:id]).commentable
+		Comment.find(params[:id]).destroy
+		@comment_parent = parent
+		@recipe = Recipe.find(params[:recipe_id])
+		@new_comment = Comment.new
 
 		respond_to do |format|
 			format.html do

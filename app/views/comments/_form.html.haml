@@ -1,7 +1,7 @@
-= form_for [@recipe, @comment], remote: true  do |f|
-	= f.hidden_field :user_id, :value => @recipe.user.id
-	= f.hidden_field :commentable_type, :value => 'Recipe'
-	= f.hidden_field :commentable_id, :value => @recipe.id
+= form_for [@recipe, @new_comment], remote: true  do |f|
+	= f.hidden_field :user_id, :value => user_id
+	= f.hidden_field :commentable_type, :value => commentable_type
+	= f.hidden_field :commentable_id, :value => commentable_id
 	.form-group
 		= f.label :content
 		= f.text_field :content, class: 'form-control'
