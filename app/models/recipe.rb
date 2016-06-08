@@ -2,7 +2,7 @@ class Recipe < ActiveRecord::Base
 	serialize :steps
 
 	belongs_to  :user
-	has_many 		:comments, :as => :commentable
+	has_many 		:comments, :as => :commentable, :dependent => :destroy
 
 	validates :name, presence: true
 	validates :cuisine, presence: true

@@ -22,13 +22,16 @@
 	.comments
 		.row
 			.col-xs-9.col-xs-offset-2
-				%ul
-					#main
-						.comments_list
+				#main
+					.comments_list
+						%ul 
 							- if @recipe.comments
 								= render partial: 'comments/comments', locals: { comments: @recipe.comments }
 
-				= render partial: 'comments/form', locals: { comment: @new_comment, commentable_type: 'Recipe', user_id: current_user.id, commentable_id: @recipe.id }
+				.comment_form_display
+					= link_to 'add comment', '#'
+					.form_display
+						= render partial: 'comments/form', locals: { comment: @new_comment, commentable_type: 'Recipe', user_id: current_user.id, commentable_id: @recipe.id }
 
 
 

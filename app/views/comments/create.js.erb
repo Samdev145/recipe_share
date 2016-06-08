@@ -1,7 +1,7 @@
 var renderComment = '<%= escape_javascript(render partial: @comment) %>';
 
 <% if @comment.commentable_type == 'Comment' %>
-	$('[data-comment-id="' + <%= @comment.commentable.id %> + '"]').find('.comments_list').append(renderComment);
+	$('[data-comment-id="' + <%= @comment.commentable.id %> + '"]').find('.comments_comments ul').first().append(renderComment);
 <% else %>
-	$('#main').find('.comments_list').first().append(renderComment);
+	$('#main').find('.comments_list ul').first().append(renderComment);
 <% end %>
