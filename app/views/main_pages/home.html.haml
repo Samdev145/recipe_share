@@ -2,21 +2,4 @@
 %p
 	Search for your favourite recipes or share your own recipes with others
 
-#recipes
-	%ul
-		- @recipes.each do |recipe|
-			%a{ href: recipe_path(recipe.id) }
-				.row
-					.recipe
-						.col-xs-2
-							.recipe_image
-								- if recipe.photo.url
-									= image_tag(recipe.photo.thumb)
-								- else
-									= image_tag('place_holder.jpg')
-						.col-xs-9
-							.description
-								%p
-									= recipe.name
-								%p
-									= "cuisine: #{recipe.cuisine}"
+= render partial: 'shared/recipe_list', locals: { recipes: @recipes, my_recipes: false  }
