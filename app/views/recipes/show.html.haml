@@ -3,10 +3,13 @@
 
 .recipe
 	.row
-		.col-xs-2
-			.image
-				Place holder
-		.col-xs-9
+		.col-xs-3
+			.recipe_image
+				- if @recipe.photo.url
+					= image_tag(@recipe.photo.thumb)
+				- else
+					= image_tag('place_holder.jpg')
+		.col-xs-8
 			.description
 				%p
 					%ul
@@ -21,7 +24,7 @@
 .container-fluid
 	.comments
 		.row
-			.col-xs-9.col-xs-offset-2
+			.col-xs-8.col-xs-offset-3
 				#main
 					.comments_list
 						%ul 

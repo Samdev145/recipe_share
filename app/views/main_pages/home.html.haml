@@ -9,8 +9,11 @@
 				.row
 					.recipe
 						.col-xs-2
-							.image
-								Place holder
+							.recipe_image
+								- if recipe.photo.url
+									= image_tag(recipe.photo.thumb)
+								- else
+									= image_tag('place_holder.jpg')
 						.col-xs-9
 							.description
 								%p

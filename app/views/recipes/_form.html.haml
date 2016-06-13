@@ -20,6 +20,9 @@
 				.form-group
 					= f.label :ingredients
 					= f.text_field :ingredients, class: 'form-control'
+				.form-group
+					= f.label :photo
+					= f.file_field :photo, class: 'form-control'
 
 				%button{class: 'btn btn-success'}
 					Submit

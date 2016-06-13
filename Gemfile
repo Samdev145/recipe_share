@@ -12,6 +12,8 @@ gem 'bootstrap-sass', '~> 3.3.5'
 
 gem 'haml', '~> 4.0'
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
 gem 'devise'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -41,6 +43,10 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'carrierwave'
+gem "mini_magick"
+gem 'fog-aws'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.4'

@@ -2,7 +2,7 @@
 .container-fluid
 	.row
 		.col-xs-6
-			%h1 Recipes
+			%h1 My Recipes
 		.col-xs-6
 			.pull-right
 				= link_to'New Recipe', new_recipe_path, class: 'btn btn-success'
@@ -14,8 +14,11 @@
 				.row
 					.recipe
 						.col-xs-2
-							.image
-								Place holder
+							.recipe_image
+								- if recipe.photo.url
+									= image_tag(recipe.photo.thumb)
+								- else
+									= image_tag('place_holder.jpg')
 						.col-xs-9
 							.description
 								%p

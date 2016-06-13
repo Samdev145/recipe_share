@@ -1,0 +1,11 @@
+class Parent
+
+
+	def initialize(p*)
+		@p = p
+	end
+
+
+end
+
+p = Parent.new
