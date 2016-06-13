@@ -1,7 +1,11 @@
 class MainPagesController < ApplicationController
 
   def home
-  	@recipes = Recipe.all
+  	@recipes = if params['search']
+  		Recipe.type_search(params['search'])
+  	else
+  		Recipe.all
+  	end
   end
 
 end

@@ -10,4 +10,10 @@ class Recipe < ActiveRecord::Base
 	validates :steps, presence: true
 	validates :ingredients, presence: true
 
+	private
+
+	def self.type_search(search)
+		where "name LIKE ? OR cuisine LIKE ?", "%#{search}%", "%#{search}%"
+	end
+
 end
