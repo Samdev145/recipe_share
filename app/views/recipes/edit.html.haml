@@ -2,6 +2,10 @@
 
 .row
 	.col-xs-7
+		- if @recipe.errors.any?
+			%ul
+				- @recipe.errors.full_messages.each do |error|
+					%li= error
 		= form_for(@recipe) do |f|
 			.form-group
 				= f.label :name
@@ -9,10 +13,17 @@
 			.form-group
 				= f.label :cuisine
 				= f.text_field :cuisine, class: 'form-control'
-			- @recipe.steps.each do |step|
-				.form-group
-					= f.label :steps
-					= f.text_field :steps, class: 'form-control', name: 'recipe[steps][]', value: step
+			.step_fields
+				- @recipe.steps.each do |step|
+					.new_step_fields
+						.form-group
+							= f.label :steps, 'Step'
+							= f.text_field :steps, class: 'form-control', name: 'recipe[steps][]', value: step
+							%div{ class: 'new_step_button btn btn-success' }
+								Add Step
+							%div{ class: 'remove_step_button btn btn-danger' }
+								Remove Step
+
 			.form-group
 				= f.label :ingredients
 				= f.text_field :ingredients, class: 'form-control'
@@ -24,3 +35,5 @@
 
 			%button{class: 'btn btn-success'}
 				Submit
+
+					

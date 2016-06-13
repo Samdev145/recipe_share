@@ -1,5 +1,9 @@
 .row
 	.col-xs-7
+		- if @recipe.errors.any?
+			%ul
+				- @recipe.errors.full_messages.each do |error|
+					%li= error
 		.recipe_form
 			= form_for(@recipe) do |f|
 				.form-group
